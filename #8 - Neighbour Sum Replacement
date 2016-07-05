@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n, y, v[1001];
+int main()
+{
+    cin>>n;
+    for(int i=1;i<=n;++i)
+        cin>>v[i];
+    int x=v[n];
+    int x1=v[1];
+    int x2=v[n-1];
+    for(int i=1;i<=n;++i)
+    {
+        y=x;
+        x=v[i];
+        v[i]=y+v[i+1];
+    }
+    v[n]=x1+x2;
+    cout<<n<<'\n';
+    for(int i=1;i<=n;++i)
+        cout<<v[i]<<' ';
+    return 0;
+}
