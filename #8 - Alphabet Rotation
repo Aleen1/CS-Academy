@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+unordered_map < string, int> mm;
+string v[100000];
+int n,j,k,asdf;
+
+int main() {
+    cin>>n;
+    for(int i=0;i<n;++i)
+    {
+        cin>>v[i];
+        mm[v[i]]++;
+    }
+    for(int i=0;i<n;++i)
+    {
+        asdf=0;
+        if(mm[v[i]]>1)
+            asdf=1;
+        else
+        {
+            for(j=1;j<26;++j)
+            {
+                for(k=0;k<v[i].size();++k)
+                    {
+                        v[i][k]++;
+                        if(v[i][k]=='{')
+                            v[i][k]='a';
+                    }
+                if(mm[v[i]])
+                {
+                    asdf=1;
+                    break;
+                }
+            }
+        }
+        if(asdf)
+            cout<<"1\n";
+        else
+            cout<<"0\n";
+    }
+    return 0;
+}
